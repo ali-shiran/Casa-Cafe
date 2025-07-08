@@ -1,19 +1,24 @@
-// main.js
-
 // --- START: Background Zoom Fix ---
-// This function sets the height of the background container to the window's initial height.
-const setBackgroundHeight = () => {
+document.addEventListener('DOMContentLoaded', () => {
   const bgContainer = document.querySelector('.fixed-background-container');
-  if (bgContainer) {
-    bgContainer.style.height = `${window.innerHeight}px`;
+
+  const setBackgroundHeight = () => {
+    if (bgContainer) {
+      // Set height based on the visual viewport for more accuracy on mobile
+      const visualViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
+      bgContainer.style.height = `${visualViewportHeight}px`;
+    }
+  };
+
+  // Set the height as soon as the DOM is ready
+  setBackgroundHeight();
+
+  // Adjust on resize and, importantly, on viewport changes for mobile
+  window.addEventListener('resize', setBackgroundHeight);
+  if (window.visualViewport) {
+    window.visualViewport.addEventListener('resize', setBackgroundHeight);
   }
-};
-
-// Set the height when the page loads.
-window.addEventListener('load', setBackgroundHeight);
-
-// Also set it if the user resizes the window (e.g., screen rotation).
-window.addEventListener('resize', setBackgroundHeight);
+});
 // --- END: Background Zoom Fix ---
 
 
