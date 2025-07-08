@@ -20,13 +20,13 @@
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: rgb(222, 184, 135); /* Base brownish color, used as fallback if image fails */
+  background-color: rgb(222, 184, 135);
   color: rgb(33, 20, 10);
   line-height: 1.6;
   transition: background-color 0.5s ease;
   position: relative;
-  z-index: 1; /* Ensure body content is above the overlay */
-  min-height: 100vh; /* Ensure body takes at least full viewport height for scrolling */
+  z-index: 1;
+  min-height: 100vh;
 }
 
 /* Base overlay for the main content area (on body) */
@@ -37,10 +37,10 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
-  backdrop-filter: blur(2px); /* Apply a slight blur to the background image */
-  -webkit-backdrop-filter: blur(2px); /* Safari support */
-  z-index: -1; /* Place behind body content */
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
 }
 
 /* Header */
@@ -522,5 +522,12 @@ body.iced-theme .close-mobile {
   }
   50% {
     transform: translateY(-8px);
+  }
+}
+
+/* --- NEW: Desktop Background Adjustment --- */
+@media (min-width: 769px) {
+  .fixed-background-container {
+    background-position: center top; /* Anchors image to the top */
   }
 }
