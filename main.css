@@ -5,24 +5,28 @@
   box-sizing: border-box;
 }
 
-/* NEW: Background styling on HTML element */
-html {
-  height: 100%;
+/* NEW: Dedicated background container styling with SVH unit */
+.fixed-background-container {
+  position: fixed; /* Keep it fixed */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100svh; /* Use small viewport height to prevent resizing */
   background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg'); /* Your background image */
   background-size: cover;
   background-position: center;
-  background-attachment: fixed; /* Prevents zooming on mobile */
+  z-index: -2; /* Place behind body content and its overlay */
 }
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: transparent; /* Set to transparent to show HTML background */
+  background-color: rgb(222, 184, 135); /* Base brownish color, used as fallback if image fails */
   color: rgb(33, 20, 10);
   line-height: 1.6;
   transition: background-color 0.5s ease;
   position: relative;
   z-index: 1; /* Ensure body content is above the overlay */
-  min-height: 100%; /* Changed from min-height: 100vh */
+  min-height: 100vh; /* Ensure body takes at least full viewport height for scrolling */
 }
 
 /* Base overlay for the main content area (on body) */
