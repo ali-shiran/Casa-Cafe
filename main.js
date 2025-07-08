@@ -1,3 +1,22 @@
+// main.js
+
+// --- START: Background Zoom Fix ---
+// This function sets the height of the background container to the window's initial height.
+const setBackgroundHeight = () => {
+  const bgContainer = document.querySelector('.fixed-background-container');
+  if (bgContainer) {
+    bgContainer.style.height = `${window.innerHeight}px`;
+  }
+};
+
+// Set the height when the page loads.
+window.addEventListener('load', setBackgroundHeight);
+
+// Also set it if the user resizes the window (e.g., screen rotation).
+window.addEventListener('resize', setBackgroundHeight);
+// --- END: Background Zoom Fix ---
+
+
 // Handle temperature selection and enable Explore button
 const tempButtons = document.querySelectorAll(".temp-btn");
 const exploreBtn = document.getElementById("exploreBtn");
