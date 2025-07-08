@@ -5,30 +5,40 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", sans-serif;
-  background-color: rgb(222, 184, 135); /* Base brownish color, used as fallback */
-  color: rgb(33, 20, 10);
-  line-height: 1.6;
-  transition: background-color 0.5s ease; /* Smooth transition for background color overlay */
-  background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg'); /* Default background image */
+/* NEW: HTML pseudo-element for fixed background */
+html::before {
+  content: '';
+  position: fixed; /* Use fixed for this element */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg'); /* Your background image */
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
-
-  position: relative; /* Needed for pseudo-element overlay */
-  z-index: 1; /* Ensure body content is above the overlay */
+  z-index: -2; /* Place behind body content and its overlay */
 }
 
-/* Base overlay for the background image, always present for readability */
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: rgb(222, 184, 135); /* Base brownish color, used as fallback if image fails */
+  color: rgb(33, 20, 10);
+  line-height: 1.6;
+  transition: background-color 0.5s ease;
+  position: relative;
+  z-index: 1; /* Ensure body content is above the overlay */
+  min-height: 100vh; /* Ensure body takes at least full viewport height for scrolling */
+}
+
+/* Base overlay for the main content area (on body), always present for readability */
 body::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay (adjust opacity as needed) */
+  height: 100%; /* Changed to 100% to cover scrolling content */
+  background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay */
   backdrop-filter: blur(2px); /* Apply a slight blur to the background image */
   -webkit-backdrop-filter: blur(2px); /* Safari support */
   z-index: -1; /* Place behind body content */
@@ -270,7 +280,7 @@ footer {
 
 /* Close button styling (default) */
 .close-mobile {
-  background-image: url('close.svg'); /* Default close SVG icon */
+  background-image: url('close.svg'); /* Corrected to SVG */
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
@@ -304,7 +314,7 @@ footer {
 
 /* Hamburger menu icon styling (default) */
 .menu-open {
-  background-image: url('menu.svg'); /* Default menu SVG icon */
+  background-image: url('ham-menu.svg'); /* Corrected to SVG */
   background-size: 60%;
   background-repeat: no-repeat;
   background-position: center;
