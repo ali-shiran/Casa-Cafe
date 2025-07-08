@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Discover cozy and creative homemade drink recipes at CasaCafé. Your home café journey starts here!"
+    />
+    <title>CasaCafé!</title>
+    <link rel="stylesheet" href="main.css" />
+    <link rel="icon" href="Logo.png" />
+  </head>
+  <body class="default-theme">
+    <div class="loader" id="loader">
+      <div class="cup">
+        <div class="handle"></div>
+        <div class="steam steam1"></div>
+        <div class="steam steam2"></div>
+        <div class="steam steam3"></div>
+      </div>
+    </div>
+
+    <header class="top" role="banner">
+      <div class="headr-left">
+        <nav aria-label="Main navigation" class="hide-mobile">
+          <ul>
+            <li><a href="#">Log In</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">About Us</a></li>
+          </ul>
+        </nav>
+        <button class="menu-open hide-desktop" aria-label="Open menu"></button>
+      </div>
+
+      <a href="index.html" class="logo-link" aria-label="CasaCafé Home">
+        <img class="logo" src="Logo2.png" alt="CasaCafé logo with coffee cup" />
+      </a>
+
+      <div class="headr-right hide-mobile"></div>
+    </header>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <button class="close-mobile" id="closeMenu" aria-label="Close menu"></button>
+      <ul>
+        <li><a href="#">Log In</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+
+    <main>
+      <section class="hero" aria-label="Intro section">
+        <h1>
+          Welcome to
+          <img src="Logo.png" alt="CasaCafé text logo" />
+        </h1>
+        <h3>Your cozy corner for homemade drink recipes</h3>
+        <p class="subhead">
+          Have you ever come across a stunning drink on social media, spotted
+          someone at your favorite café enjoying a mouthwatering beverage, or
+          listened to friends or family rave about a drink they had, leaving you
+          curious about how to recreate it at home? If you've ever wanted to
+          impress your guests or simply indulge in a delightful treat, you’ve
+          come to the right place! CasaCafé is your cozy little guide to
+          creating café-style drinks at home.
+        </p>
+
+        <button
+          id="exploreBtn"
+          class="explore-btn"
+          disabled
+          aria-disabled="true"
+        >
+          Explore Recipes
+        </button>
+      </section>
+
+      <section class="drink-type" aria-label="Choose drink temperature">
+        <h2>Choose Your Mood</h2>
+        <div class="temperature-options">
+          <button class="temp-btn" data-type="hot" aria-pressed="false">
+            Hot Drinks
+          </button>
+          <button class="temp-btn" data-type="iced" aria-pressed="false">
+            Iced Drinks
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <p>
+        Hey there! I’m someone who just really loves making coffee drinks at
+        home—trying new flavors, playing around with ingredients, and turning my
+        kitchen into a little café. CasaCafé is where I share the recipes I’ve
+        come to enjoy, hoping you’ll find something you love too. Thanks for
+        being here—you're always welcome!
+      </p>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

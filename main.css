@@ -1,0 +1,519 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: rgb(222, 184, 135); /* Base brownish color, used as fallback */
+  color: rgb(33, 20, 10);
+  line-height: 1.6;
+  transition: background-color 0.5s ease; /* Smooth transition for background color overlay */
+  background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg'); /* Default background image */
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+
+  position: relative; /* Needed for pseudo-element overlay */
+  z-index: 1; /* Ensure body content is above the overlay */
+}
+
+/* Base overlay for the background image, always present for readability */
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4); /* Dark semi-transparent overlay (adjust opacity as needed) */
+  backdrop-filter: blur(2px); /* Apply a slight blur to the background image */
+  -webkit-backdrop-filter: blur(2px); /* Safari support */
+  z-index: -1; /* Place behind body content */
+}
+
+/* Header */
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: rgba(222, 184, 135, 0.8); /* Default slightly transparent background for glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgb(160, 82, 45);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: background-color 0.5s ease; /* Add transition for theme change */
+}
+
+.headr-left {
+  flex: 1;
+}
+
+.headr-left nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
+
+.headr-left nav ul li a {
+  text-decoration: none;
+  color: rgb(33, 20, 10);
+  font-weight: 500;
+}
+
+/* Logo alignment */
+.logo-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin: 0 20px;
+}
+
+.logo {
+  height: 40px;
+}
+
+/* Hero Section */
+.hero {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative; /* Ensure hero content is above body overlay */
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff; /* Changed text color to white for better contrast on dark overlay */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7); /* Subtle shadow for text */
+}
+
+.hero h1 img {
+  height: 1.8em;
+  vertical-align: middle;
+  display: inline;
+}
+
+.hero h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff; /* Changed text color to white */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.subhead {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1rem;
+  color: #f0f0f0; /* Changed text color to light grey */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+/* Explore Button */
+.explore-btn {
+  margin-top: 24px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  background-color: rgb(180, 180, 180);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: not-allowed;
+  opacity: 0.7;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.explore-btn.enabled {
+  background-color: rgb(160, 82, 45);
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Hover Effects */
+button:hover:not(:disabled),
+.explore-btn.enabled:hover {
+  background-color: rgb(120, 60, 30);
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.headr-left nav ul li a:hover {
+  color: rgb(120, 60, 30);
+  text-decoration: underline;
+}
+
+/* Temp Button Glassmorphism and 3D Effect */
+.temp-btn {
+  padding: 10px 20px;
+  background-color: rgba(255, 255, 255, 0.15); /* Transparent background */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Light border */
+  border-radius: 5px;
+  font-weight: bold;
+  color: rgb(255, 255, 255); /* Changed text color to white for better contrast */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative; /* Needed for 3D effect */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Initial shadow for depth */
+}
+
+.temp-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0)); /* Light gradient overlay */
+  border-radius: 5px;
+  pointer-events: none; /* Allows clicks to pass through */
+}
+
+.temp-btn:active {
+  transform: translateY(2px); /* Simulate button press */
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+.temp-btn.active {
+  background-color: rgba(160, 82, 45, 0.4); /* Slightly less transparent active state */
+  color: white;
+  border-color: rgba(160, 82, 45, 0.6);
+  box-shadow: 0 4px 8px rgba(160, 82, 45, 0.4);
+}
+
+/* Drink Type */
+.drink-type {
+  padding: 30px 20px;
+  text-align: center;
+  position: relative; /* Ensure content is above body overlay */
+  z-index: 2;
+}
+
+.temperature-options {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 16px;
+}
+
+/* Footer */
+footer {
+  padding: 30px 20px;
+  background-color: rgba(210, 180, 140, 0.8); /* Default slightly transparent background for glass effect */
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  text-align: center;
+  font-size: 0.9rem;
+  position: relative; /* Ensure content is above body overlay */
+  z-index: 2;
+  transition: background-color 0.5s ease; /* Add transition for theme change */
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  margin: 0 10px;
+  color: rgb(80, 40, 20);
+  text-decoration: none;
+}
+
+/* Mobile Menu Styles */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: -100%;
+  width: 70%;
+  max-width: 300px;
+  height: 100vh;
+  background-color: rgba(222, 184, 135, 0.9); /* Default slightly transparent */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 30px 20px;
+  transition: left 0.3s ease, background-color 0.5s ease; /* Add transition for theme change */
+  z-index: 999;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.mobile-menu.show {
+  left: 0;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 50px 0 0;
+}
+
+.mobile-menu ul li {
+  margin-bottom: 20px;
+}
+
+.mobile-menu ul li a {
+  color: rgb(33, 20, 10);
+  font-size: 1.1rem;
+  text-decoration: none;
+  display: block;
+  padding: 10px 0;
+}
+
+/* Close button styling (default) */
+.close-mobile {
+  background-image: url('close.svg'); /* Default close SVG icon */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  font-size: 0;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease, background-image 0.5s ease; /* Added background-image transition */
+}
+
+.close-mobile:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.close-mobile:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Hamburger menu icon styling (default) */
+.menu-open {
+  background-image: url('menu.svg'); /* Default menu SVG icon */
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 0;
+  font-size: 0;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.2s ease, background-image 0.5s ease; /* Added background-image transition */
+}
+
+.menu-open:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-open:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* --- THEME SPECIFIC STYLES --- */
+
+/* Hot Theme */
+body.hot-theme .top {
+    background-color: rgba(255, 41, 41, 0.6); /* Semi-transparent #ff2929 */
+    border-bottom-color: rgba(160, 82, 45, 0.8); /* Maintain dark border */
+}
+
+body.hot-theme footer {
+    background-color: rgba(255, 41, 41, 0.6); /* Semi-transparent #ff2929 */
+}
+
+body.hot-theme .mobile-menu {
+    background-color: rgba(255, 41, 41, 0.8); /* Semi-transparent #ff2929 */
+}
+
+body.hot-theme .menu-open {
+    background-image: url('ham-menu-hot.svg');
+}
+
+body.hot-theme .close-mobile {
+    background-image: url('close-hot.svg');
+}
+
+/* Iced Theme */
+body.iced-theme .top {
+    background-color: rgba(54, 171, 221, 0.6); /* Semi-transparent #36abdd */
+    border-bottom-color: rgba(160, 82, 45, 0.8); /* Maintain dark border */
+}
+
+body.iced-theme footer {
+    background-color: rgba(54, 171, 221, 0.6); /* Semi-transparent #36abdd */
+}
+
+body.iced-theme .mobile-menu {
+    background-color: rgba(54, 171, 221, 0.8); /* Semi-transparent #36abdd */
+}
+
+body.iced-theme .menu-open {
+    background-image: url('ham-menu-iced.svg');
+}
+
+body.iced-theme .close-mobile {
+    background-image: url('close-iced.svg');
+}
+
+/* --- END THEME SPECIFIC STYLES --- */
+
+
+/* Responsive Adjustments */
+.hide-desktop {
+  display: none;
+}
+
+.hide-mobile {
+  display: flex;
+}
+
+
+@media (max-width: 768px) {
+  .hide-desktop {
+    display: block;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+
+  .top {
+    justify-content: space-between;
+  }
+
+  .logo-link {
+    margin: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .headr-left {
+    flex: none;
+  }
+  .headr-right {
+    flex: 1;
+    display: block;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .subhead {
+    font-size: 0.95rem;
+  }
+
+  .temperature-options {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+
+/* Loader styles */
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgb(222, 184, 135);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.5s ease-out;
+}
+
+.cup {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: rgb(160, 82, 45);
+  border-radius: 0 0 20px 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.handle {
+  position: absolute;
+  right: -15px;
+  top: 15px;
+  width: 20px;
+  height: 30px;
+  border: 4px solid rgb(160, 82, 45);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.steam {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  animation: steamUp 2s infinite ease-in-out;
+}
+
+.steam1 {
+  left: 10px;
+  animation-delay: 0s;
+}
+.steam2 {
+  left: 25px;
+  animation-delay: 0.5s;
+}
+.steam3 {
+  left: 40px;
+  animation-delay: 1s;
+}
+
+@keyframes steamUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
