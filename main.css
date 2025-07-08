@@ -5,17 +5,17 @@
   box-sizing: border-box;
 }
 
-/* NEW: Dedicated background container styling with SVH unit */
+/* Background container controlled by JavaScript */
 .fixed-background-container {
-  position: fixed; /* Keep it fixed */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100svh; /* Use small viewport height to prevent resizing */
-  background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg'); /* Your background image */
+  height: 100vh; /* Fallback height, JS will override this */
+  background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg');
   background-size: cover;
   background-position: center;
-  z-index: -2; /* Place behind body content and its overlay */
+  z-index: -2;
 }
 
 body {
