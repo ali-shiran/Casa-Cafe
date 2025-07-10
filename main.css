@@ -5,16 +5,23 @@
   box-sizing: border-box;
 }
 
-/* Background container controlled by JavaScript */
+/* NEW: Root variable for viewport height */
+:root {
+  --vh: 100vh;
+}
+
+/* Updated background container using the --vh variable */
 .fixed-background-container {
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100vh; /* Fallback height, JS will override this */
+  width: 100vw;
+  height: 100vh; /* Fallback for browsers without JS */
+  height: var(--vh); /* Use the JS-corrected height */
   background-image: url('ardalan-hamedani-2iej-g-BMxU-unsplash.jpg');
   background-size: cover;
-  background-position: center;
+  background-position: center top;
+  background-repeat: no-repeat;
   z-index: -2;
 }
 
@@ -368,7 +375,7 @@ body.hot-theme .close-mobile {
 /* Iced Theme */
 body.iced-theme .top {
     background-color: rgba(54, 171, 221, 0.6);
-    border-bottom-color: rgba(160, 82, 45, 0.8);
+    border-bottom-color: rgba(160, 82, 45,.8);
 }
 
 body.iced-theme footer {
@@ -426,6 +433,11 @@ body.iced-theme .close-mobile {
     flex: 1;
     display: block;
   }
+  
+  /* NEW: Center background on mobile */
+  .fixed-background-container {
+    background-position: center center;
+  }
 }
 
 
@@ -522,12 +534,5 @@ body.iced-theme .close-mobile {
   }
   50% {
     transform: translateY(-8px);
-  }
-}
-
-/* --- NEW: Desktop Background Adjustment --- */
-@media (min-width: 769px) {
-  .fixed-background-container {
-    background-position: center top; /* Anchors image to the top */
   }
 }

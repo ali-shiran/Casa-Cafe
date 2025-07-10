@@ -1,25 +1,15 @@
-// --- START: Background Zoom Fix ---
-document.addEventListener('DOMContentLoaded', () => {
-  const bgContainer = document.querySelector('.fixed-background-container');
+// --- START: CSS Viewport Height (vh) Fix ---
+const setVhVariable = () => {
+  // We execute the function once
+  document.documentElement.style.setProperty('--vh', `${window.innerHeight}px`);
+}
 
-  const setBackgroundHeight = () => {
-    if (bgContainer) {
-      // Set height based on the visual viewport for more accuracy on mobile
-      const visualViewportHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-      bgContainer.style.height = `${visualViewportHeight}px`;
-    }
-  };
+// Set the variable on initial load
+setVhVariable();
 
-  // Set the height as soon as the DOM is ready
-  setBackgroundHeight();
-
-  // Adjust on resize and, importantly, on viewport changes for mobile
-  window.addEventListener('resize', setBackgroundHeight);
-  if (window.visualViewport) {
-    window.visualViewport.addEventListener('resize', setBackgroundHeight);
-  }
-});
-// --- END: Background Zoom Fix ---
+// And reset it on window resize
+window.addEventListener('resize', setVhVariable);
+// --- END: CSS Viewport Height (vh) Fix ---
 
 
 // Handle temperature selection and enable Explore button
