@@ -8,7 +8,7 @@
 @font-face {
   font-family: 'Grand Hotel';
   /* Path corrected to lowercase */
-  src: url('fonts/GrandHotel-Regular.ttf') format('truetype');
+  src: url('Fonts/GrandHotel-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
