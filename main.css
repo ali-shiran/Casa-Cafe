@@ -1,0 +1,385 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Grand Hotel';
+  src: url('Fonts/GrandHotel-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --vh: 100vh;
+}
+
+.fixed-background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url('Photos/lori-dejong--nu2MoJ2xvg-unsplash.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -2;
+}
+
+body {
+  font-family: "Segoe UI", sans-serif;
+  background-color: rgb(222, 184, 135);
+  color: rgb(33, 20, 10);
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+.sticky-header-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 24px;
+  background-color: rgba(92, 64, 51, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  transition: padding 0.3s ease;
+}
+
+.logo-link {
+  text-decoration: none;
+}
+
+.header-logo {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 2.2rem;
+  color: #FDFDFA;
+  font-weight: normal;
+  transition: font-size 0.3s ease;
+}
+
+.navigation-bar {
+  background-color: rgba(210, 180, 140, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: padding 0.3s ease;
+}
+
+.navigation-bar nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
+.navigation-bar nav ul li a,
+.dropdown-btn {
+  text-decoration: none;
+  color: #FDFDFA;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navigation-bar nav ul li a:hover,
+.dropdown-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navigation-bar nav ul li a.active {
+    background-color: rgba(92, 64, 51, 0.6);
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: rgba(222, 184, 135, 0.95);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.dropdown-content a {
+  color: rgb(33, 20, 10);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.hero {
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.text-logo {
+  font-family: 'Grand Hotel', cursive;
+  font-size: 1.4em;
+  font-weight: normal;
+  display: inline-block;
+  transform: translateY(0.1em);
+}
+
+.hero h3 {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+}
+
+.subhead {
+  max-width: 800px;
+  margin: 0 auto 30px; /* Added margin-bottom to create space */
+  font-size: 1rem;
+  color: #f0f0f0;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+
+/* === NEW STYLES FOR THE HERO CALL TO ACTION BUTTON === */
+.hero-cta-button {
+  display: inline-block;
+  padding: 12px 28px;
+  background-color: rgba(92, 64, 51, 0.9);
+  color: #FDFDFA;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.hero-cta-button:hover {
+  background-color: rgba(121, 85, 72, 1);
+  transform: translateY(-2px);
+}
+/* === END OF NEW STYLES === */
+
+footer {
+  padding: 20px;
+  background-color: rgba(92, 64, 51, 0.8);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 2;
+  color: #FDFDFA;
+}
+
+.footer-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  gap: 15px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 25px;
+}
+
+.footer-links a {
+  color: rgba(253, 253, 250, 0.8);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #FDFDFA;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(253, 253, 250, 0.7);
+}
+
+.loader {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: rgb(222, 184, 135);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  transition: opacity 0.5s ease-out;
+}
+
+.cup {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: rgb(160, 82, 45);
+  border-radius: 0 0 20px 20px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.handle {
+  position: absolute;
+  right: -15px;
+  top: 15px;
+  width: 20px;
+  height: 30px;
+  border: 4px solid rgb(160, 82, 45);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.steam {
+  position: absolute;
+  width: 8px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  animation: steamUp 2s infinite ease-in-out;
+}
+
+.steam1 {
+  left: 10px;
+  animation-delay: 0s;
+}
+.steam2 {
+  left: 25px;
+  animation-delay: 0.5s;
+}
+.steam3 {
+  left: 40px;
+  animation-delay: 1s;
+}
+
+@keyframes steamUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-40px);
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 768px) {
+  .fixed-background-container {
+    background-position: center center;
+  }
+
+  body.scrolled .top {
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  body.scrolled .header-logo {
+    font-size: 1.8rem;
+  }
+
+  body.scrolled .navigation-bar {
+    padding-top: 4px;
+    padding-bottom: 4px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+
+  .hero h3 {
+    font-size: 1rem;
+  }
+
+  .subhead {
+    font-size: 0.95rem;
+  }
+
+  .navigation-bar nav ul {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+}
