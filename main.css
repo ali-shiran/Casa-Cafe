@@ -16,13 +16,15 @@
   --vh: 100vh;
 }
 
+/* This is the correct code for main.css */
+
 .fixed-background-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('Photos/background.jpg');
+  background-image: url('photos/lori-dejong--nu2MoJ2xvg-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -31,7 +33,7 @@
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: rgb(222, 184, 135);
+  background-color: rgb(222, 184, 135); /* This is just a fallback color */
   color: rgb(33, 20, 10);
   line-height: 1.6;
   position: relative;
@@ -50,6 +52,7 @@ body::before {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index: -1;
+}
 }
 
 .sticky-header-wrapper {
