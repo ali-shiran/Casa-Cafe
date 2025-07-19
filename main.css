@@ -7,7 +7,8 @@
 
 @font-face {
   font-family: 'Grand Hotel';
-  src: url('Fonts/GrandHotel-Regular.ttf') format('truetype');
+  /* Path corrected to lowercase */
+  src: url('fonts/GrandHotel-Regular.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
@@ -16,15 +17,14 @@
   --vh: 100vh;
 }
 
-/* This is the correct code for main.css */
-
 .fixed-background-container {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-image: url('Photos/lori-dejong--nu2MoJ2xvg-unsplash.jpg');
+  /* Path corrected to lowercase and your filename */
+  background-image: url('photos/lori-dejong--nu2MoJ2xvg-unsplash.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -33,7 +33,7 @@
 
 body {
   font-family: "Segoe UI", sans-serif;
-  background-color: rgb(222, 184, 135); /* This is just a fallback color */
+  background-color: rgb(222, 184, 135);
   color: rgb(33, 20, 10);
   line-height: 1.6;
   position: relative;
@@ -52,7 +52,6 @@ body::before {
   backdrop-filter: blur(2px);
   -webkit-backdrop-filter: blur(2px);
   z-index: -1;
-}
 }
 
 .sticky-header-wrapper {
@@ -194,13 +193,12 @@ body::before {
 
 .subhead {
   max-width: 800px;
-  margin: 0 auto 30px; /* Added margin-bottom to create space */
+  margin: 0 auto 30px;
   font-size: 1rem;
   color: #f0f0f0;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
 }
 
-/* === NEW STYLES FOR THE HERO CALL TO ACTION BUTTON === */
 .hero-cta-button {
   display: inline-block;
   padding: 12px 28px;
@@ -219,7 +217,6 @@ body::before {
   background-color: rgba(121, 85, 72, 1);
   transform: translateY(-2px);
 }
-/* === END OF NEW STYLES === */
 
 footer {
   padding: 20px;
